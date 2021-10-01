@@ -9,8 +9,16 @@
     "start": "node __sapper__/build"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^5.1.1",
     "compression": "^1.7.1",
+    "copy": "^0.3.2",
+    "from": "^0.1.7",
+    "import": "0.0.6",
+    "jquery": "^3.6.0",
+    "node-fetch": "2.6.2",
     "polka": "next",
+    "rollup-plugin-copy": "^3.4.0",
     "sirv": "^1.0.0"
   },
   "devDependencies": {
