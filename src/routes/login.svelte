@@ -24,7 +24,6 @@
         }
     }
 </script>
-<!--karim-->
 <svelte:head>
     <title>Sign in • Conduit</title>
 </svelte:head>
