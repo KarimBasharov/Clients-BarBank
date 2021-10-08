@@ -1,7 +1,7 @@
 <!--<script context="module">
-    export async function load({ params }, {token}) {
-        if (token){
-            this.redirect(302, '/');
+    export async function reload({ params }, { token }) {
+        if(token){
+            this.redirect(302, `/`);
         }
     }
 </script>-->
@@ -14,10 +14,10 @@
     let password = '';
     let error = null;
     async function submit(event) {
-        const response = await post('auth/login', { username, password });
-        // TODO handle network error
+        const response = await post(`auth/login`, { username, password });
+        // TODO handle network errors
         error = response.error;
-        console.log(response);
+        console.log(response)
         if (response.token) {
             $session.token = response.token;
             goto('/');
@@ -44,7 +44,7 @@
 
                 <form on:submit|preventDefault={submit}>
                     <fieldset class="form-group">
-                        <input class="form-control form-control-lg" type="text" required placeholder="Username" bind:value={username}>
+                        <input class="form-control form-control-lg" type="text" required placeholder="username" bind:value={username}>
                     </fieldset>
                     <fieldset class="form-group">
                         <input class="form-control form-control-lg" type="password" required placeholder="Password" bind:value={password}>

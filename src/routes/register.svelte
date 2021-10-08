@@ -1,25 +1,14 @@
 <script>
-    export let segment;
-    import { goto, stores} from '@sapper/app';
-    import { post } from 'utils.js'
-    const {page, session} = stores();
-    async function logout() {
-        await post(`auth/logout`);
-        // this will trigger a redirect, because it
-        // causes the `load` function to run again
-        $session.token = null;
-    }
-</script>
-<script>
-    const { session } = stores();
-    import { goto, stores } from '@sapper/app.mjs';
+    import { goto, stores } from '@sapper/app';
     import { post } from 'utils.js';
+    const{ session } =stores();
     let username = '';
     let name = '';
     let password = '';
     let error = null;
     async function submit(event) {
         const response = await post(`auth/register`, { username, name, password });
+        // TODO handle network errors
         error = response.error;
         if (response.id) {
             goto('/');
