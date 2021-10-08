@@ -1,4 +1,15 @@
-
+<script>
+    export let segment;
+    import { goto, stores} from '@sapper/app';
+    import { post } from 'utils.js'
+    const {page, session} = stores();
+    async function logout() {
+        await post(`auth/logout`);
+        // this will trigger a redirect, because it
+        // causes the `load` function to run again
+        $session.token = null;
+    }
+</script>
 <script>
     const { session } = stores();
     import { goto, stores } from '@sapper/app.mjs';
@@ -29,9 +40,6 @@
                     <a href="/login">Have an account?</a>
                 </p>
 
-                {#if error}
-                    <div class="alert alert-danger" role="alert">{error}</div>
-                {/if}
 
                 <form on:submit|preventDefault={submit}>
                     <fieldset class="form-group">
