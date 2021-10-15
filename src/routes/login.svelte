@@ -1,10 +1,10 @@
-<!--<script context="module">
-    export async function reload({ params }, { token }) {
+<script context="module">
+    export async function preload({ params }, { token }) {
         if(token){
-            this.redirect(302, `/`);
+            this.redirect(302, `/overview`);
         }
     }
-</script>-->
+</script>
 
 <script>
     import { goto, stores } from '@sapper/app';
@@ -20,7 +20,7 @@
         console.log(response)
         if (response.token) {
             $session.token = response.token;
-            goto('/');
+            goto('/overview');
         }
     }
 </script>
